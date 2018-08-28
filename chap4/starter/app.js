@@ -9,10 +9,10 @@ GAME RULES:
 
 */
 
-let currentScore, totalScore, currentPlayer
+let currentScore, roundScore, currentPlayer
 
 currentScore = [ 0, 0 ];
-totalScore = [0,0];
+roundScore = [0,0];
 currentPlayer = 0
 var diceDom = document.querySelector('.dice')
 
@@ -34,7 +34,7 @@ var diceDom = document.querySelector('.dice')
 document.getElementById('score-0').textContent = 0
 document.getElementById('score-1').textContent = 0
 document.getElementById('current-0').textContent = 0
-document.getElementById('current-0').textContent = 0
+document.getElementById('current-1').textContent = 0
 
 
 
@@ -49,13 +49,27 @@ diceDom.style.display = 'none';
 document.querySelector('.btn-roll').addEventListener('click', function() {
 
   //1. random number
-  var dice = Math.floor(Math.random() * 6) + 1
-
+  var dice = Math.floor(Math.random() * 6) + 1;
+  document.getElementById('current-'+currentPlayer).textContent = dice
   //2. update number if current score is not 1
   diceDom.style.display = 'block';
-  diceDom.src = 'dice-' + dice +'.png'
+  diceDom.src = 'dice-' + dice +'.png';
 
+  if (dice > 1) {
+    // add number to score
+    roundScore[currentPlayer] += dice
+    document.getElementById('score-'+currentPlayer).textContent = roundScore[currentPlayer]
+  } else {
+    // change the turn
+    currentPlayer === 0 ? currentPlayer = 1 : currentPlayer= 0;
+  }
+})
 
-
+document.querySelector('.btn-new').addEventListener('click', function() {
+  document.getElementById('score-0').textContent = 0
+  document.getElementById('score-1').textContent = 0
+  document.getElementById('current-0').textContent = 0
+  document.getElementById('current-1').textContent = 0
+  diceDom.style.display = 'none'
 
 })
