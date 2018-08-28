@@ -9,12 +9,11 @@ GAME RULES:
 
 */
 
-let dice, currentScore, totalScore, newBtn, playerNumber;
+let currentScore, totalScore, newBtn, playerNumber;
 
-dice = Math.floor(Math.random() * 6) + 1;
 currentScore = [ 0, 0 ];
 totalScore = [0,0];
-playerNumber = 0;
+playerNumber = 1;
 
 
 /***************************************************
@@ -26,6 +25,26 @@ playerNumber = 0;
   L
 ***************************************************/
 
-var currentScoreman = document.querySelector('#current-'+ playerNumber).textContent = dice;
 
-var score = document.querySelector('#score-'+ playerNumber).textContent =  totalScore[playerNumber];
+
+
+
+//reset total score
+function resetScore() {
+  totalScore = [0,0]
+}
+
+
+//Rolling a dice
+
+function rollDice() {
+    var dice = Math.floor(Math.random() * 6) + 1;
+    var currentScore = document.querySelector('#current-'+ playerNumber).textContent = dice;
+    totalScore[playerNumber] += dice
+    document.querySelector('#score-'+ playerNumber).textContent =  totalScore[playerNumber];
+}
+
+
+// Rolling a dice with class "btn-roll" button.
+
+document.querySelector('.btn-roll').addEventListener('click', rollDice)
