@@ -22,15 +22,33 @@
 
 
 // Object.create
+//
+// var personProto = {
+//   calculateAge: function() {
+//     console.log(2018-this.yearOfBirth);
+//   }
+// };
+//
+// var peter = Object.create(personProto,
+//  {name: {value : "peter"},
+//  yearOfBirth: {value: 1982},
+//  gender: {value: "male"}}
+// )
+//
 
-var personProto = {
-  calculateAge: function() {
-    console.log(2018-this.yearOfBirth);
+//Passing functions as arguments.
+
+var years = [1990, 2310, 2212, 1321, 1442];
+
+function arrayCalc(arr, fn) {
+  var arrRes = [];
+  for (var i = 0; i < arr.length; i++) {
+    arrRes.push(fn(arr[i]));
   }
-};
+  return arrRes;
+}
 
-var peter = Object.create(personProto,
- {name: {value : "peter"},
- yearOfBirth: {value: 1982},
- gender: {value: "male"}}
-)
+function calculateAge(el){
+  return 2016 - el
+}
+arrayCalc(years, calculateAge);
