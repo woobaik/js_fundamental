@@ -37,18 +37,37 @@
 //
 
 //Passing functions as arguments.
+//
+// var years = [1990, 2310, 2212, 1321, 1442];
+//
+// function arrayCalc(arr, fn) {
+//   var arrRes = [];
+//   for (var i = 0; i < arr.length; i++) {
+//     arrRes.push(fn(arr[i]));
+//   }
+//   return arrRes;
+// }
+//
+// function calculateAge(el){
+//   return 2016 - el
+// }
+// arrayCalc(years, calculateAge);
 
-var years = [1990, 2310, 2212, 1321, 1442];
+// Lecture IIFE
 
-function arrayCalc(arr, fn) {
-  var arrRes = [];
-  for (var i = 0; i < arr.length; i++) {
-    arrRes.push(fn(arr[i]));
-  }
-  return arrRes;
-}
+// function game() {
+//   var score = Math.random() * 10;
+//   console.log(score > 5);
+// }
+// 
+// (function () {
+//   var score = Math.random() * 10;
+//   console.log(score > 5);
+// })();
+// console.log(score)
 
-function calculateAge(el){
-  return 2016 - el
-}
-arrayCalc(years, calculateAge);
+
+(function(goodLuck) {
+  var score = Math.random() * 10;
+  console.log(score > 5 - goodLuck)
+})(5);
