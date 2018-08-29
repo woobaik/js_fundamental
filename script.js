@@ -59,15 +59,36 @@
 //   var score = Math.random() * 10;
 //   console.log(score > 5);
 // }
-// 
+//
 // (function () {
 //   var score = Math.random() * 10;
 //   console.log(score > 5);
 // })();
 // console.log(score)
 
+//
+// (function(goodLuck) {
+//   var score = Math.random() * 10;
+//   console.log(score > 5 - goodLuck)
+// })(5);
 
-(function(goodLuck) {
-  var score = Math.random() * 10;
-  console.log(score > 5 - goodLuck)
-})(5);
+
+// call, bind
+
+var haram = {
+  name: 'Haram',
+  age: 28,
+  marriedOn: function(time) {
+    console.log(this.name + ' is married when her age of ' + this.age + '. good ' + time)
+  }
+
+}
+
+console.log(haram)
+
+var jw = {
+  name: "Joungwoo",
+  age: 33
+}
+
+haram.marriedOn.call(jw, 'morning')
