@@ -1,9 +1,9 @@
 var budgetController = (function() {
 
-  var x = 23;
+  var x = 25;
 
   var add = function(a) {
-    return x + a ;
+    return a + x
   }
 
   return {
@@ -13,18 +13,20 @@ var budgetController = (function() {
   }
 })();
 
-
 var uiController = (function() {
-  // some code;
+  //some code here
+
+
 })();
 
 var controller = (function(budgetCtrl, uiCtrl) {
 
-  var z = budgetController.publicTest(4);
+  var z = budgetCtrl.publicTest(4);
 
   return {
-    anotherPublicController: function() {
-      console.log(z);
+    anotherPublic: function() {
+      console.log(z)
     }
   }
-})(budgetController, uiController)
+
+})(budgetController, uiController);
