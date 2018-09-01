@@ -1,6 +1,9 @@
 var budgetController = (function() {
   // some code
 
+  var inputData = {
+
+  }
 })();
 
 var uiController = (function() {
@@ -11,7 +14,7 @@ var uiController = (function() {
 
 var controller = (function(budgetCtrl, uiCtrl) {
 
-  document.querySelector('.add__btn').addEventListener('click',function() {
+  var ctrlAddItem = function() {
     // 1. get the filled input data
 
     // 2. add the item to the budget controller
@@ -21,6 +24,15 @@ var controller = (function(budgetCtrl, uiCtrl) {
     // 4. calculate the budget.
 
     // 5. display the budget on the UI
+  }
+
+  document.querySelector('.add__btn').addEventListener('click',ctrlAddItem);
+
+  document.addEventListener('keypress', function(event) {
+    if (event.keyCode === 13 || event.which === 13) {
+      ctrlAddItem();
+    };
   });
+
 
 })(budgetController, uiController);
