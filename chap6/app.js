@@ -8,21 +8,33 @@ var budgetController = (function() {
 
 var uiController = (function() {
   //some code here
+
+  var DomStrings = {
+    inputType: '.add__type',
+    inputDescription: '.add__description',
+    inputValue: '.add__value',
+    inputButton: '.add__btn'
+
+  }
   return {
     getInput: function() {
       return {
-       type: document.querySelector('.add__type').value,
-       description: document.querySelector('.add__description').value,
-       value: document.querySelector('.add__value').value
+       type: document.querySelector(DomStrings.inputType).value,
+       description: document.querySelector(DomStrings.inputDescription).value,
+       value: document.querySelector(DomStrings.inputValue).value
      };
+   },
 
-    }
+   getDomStrings: function() {
+     return DomStrings;
+   }
   };
 
 })();
 
 var controller = (function(budgetCtrl, uiCtrl) {
 
+  var DOM = uiCtrl.getDomStrings();
   var ctrlAddItem = function() {
     console.log("it works")
     // 1. get the filled input data
@@ -37,7 +49,7 @@ var controller = (function(budgetCtrl, uiCtrl) {
     // 5. display the budget on the UI
   }
 
-  document.querySelector('.add__btn').addEventListener('click',ctrlAddItem);
+  document.querySelector(DOM.inputButton).addEventListener('click',ctrlAddItem);
 
   document.addEventListener('keypress', function(event) {
     if (event.keyCode === 13 || event.which === 13) {
