@@ -15,6 +15,7 @@ var uiController = (function() {
 var controller = (function(budgetCtrl, uiCtrl) {
 
   var ctrlAddItem = function() {
+    console.log("it works")
     // 1. get the filled input data
 
     // 2. add the item to the budget controller
