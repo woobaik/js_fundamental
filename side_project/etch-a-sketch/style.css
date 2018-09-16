@@ -10,23 +10,20 @@ html, body, {
   /* perspective: 1000px; */
 }
 #container {
-   background: black;
-   padding: 80px;
-   width: 100%;
+   background: #d5d5d5;
+   margin: 0px auto;
+   width: 600px;
    color: red;
    display: grid;
-   grid-gap: 10px;
+   grid-gap: 1px;
 
  }
 
-
  .grid {
+
    background: white;
    border: 1px solid red;
    border-radius: 6%;
-   display: inline-block;
-
-
 
 
  }
