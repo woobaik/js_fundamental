@@ -14,6 +14,7 @@ var rollDiceBtn, diceBtn, activePlayer, current, total;
 rollDiceBtn = document.querySelector('.btn-roll');
 diceBtn = document.querySelector('.dice');
 holdBtn = document.querySelector('.btn-hold');
+newBtn = document.querySelector('.btn-new');
 
 //====== # initialize ======
 init()
@@ -24,6 +25,7 @@ rollDiceBtn.addEventListener('click', function() {
   var randomNumber = Math.random() * 6;
   var dice = Math.floor(randomNumber) + 1;
 
+  diceBtn.style.display = 'block';
   diceBtn.src = 'dice-' + dice + '.png'
   // check if dice is 1, if so, change activePlayer, else, add number to current.
   if (dice !== 1) {
@@ -43,7 +45,7 @@ rollDiceBtn.addEventListener('click', function() {
 
 })
 
-// ====== # hold buttn function ======
+// ====== # hold button function ======
 holdBtn.addEventListener('click', function() {
   total[activePlayer] += current;
   current = 0;
@@ -52,10 +54,17 @@ holdBtn.addEventListener('click', function() {
 })
 
 
+//====== # new button function ======
+newBtn.addEventListener('click', function() {
+  init()
+})
+
+
 function init(){
   activePlayer = 0
   current = 0
   total = [0, 0]
+  diceBtn.style.display = 'none'
   for (var i = 0; i < 2; i++) {
     document.getElementById('current-'+ i).textContent = 0;
     document.getElementById('score-'+ i).textContent = 0;
