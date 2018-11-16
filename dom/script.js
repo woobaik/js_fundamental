@@ -33,3 +33,5 @@ div.appendChild(p2)
 
 content.appendChild(h3);
 content.appendChild(div);
+content.appendChild(div);
+content.appendChild(div);
