@@ -11,24 +11,20 @@ GAME RULES:
 
 var rollDiceBtn, diceBtn, activePlayer, current, total;
 
-activePlayer = 0
-current = 0
-rollDiceBtn = document.querySelector('.btn-roll')
-DiceBtn = document.querySelector('.dice')
-document.getElementById('score-0').textContent = 0;
-document.getElementById('score-1').textContent = 0;
-// #initialize
+rollDiceBtn = document.querySelector('.btn-roll');
+diceBtn = document.querySelector('.dice');
+holdBtn = document.querySelector('.btn-hold');
 
+//====== # initialize ======
+init()
 
-
+//====== # Roll Dice btn function ======
 rollDiceBtn.addEventListener('click', function() {
   // genenrate number
   var randomNumber = Math.random() * 6;
   var dice = Math.floor(randomNumber) + 1;
 
-
-  DiceBtn.src = 'dice-' + dice + '.png'
-
+  diceBtn.src = 'dice-' + dice + '.png'
   // check if dice is 1, if so, change activePlayer, else, add number to current.
   if (dice !== 1) {
     current += dice;
@@ -40,7 +36,6 @@ rollDiceBtn.addEventListener('click', function() {
     toggleActivePlayer()
     activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
     toggleActivePlayer()
-    // <div class="player-0-panel active">
   }
 
   // display current sum number to currentbox
@@ -53,3 +48,19 @@ rollDiceBtn.addEventListener('click', function() {
     document.querySelector('.player-'+ activePlayer + '-panel').classList.toggle("active")
   }
 })
+
+holdBtn.addEventListener('click', function() {
+
+
+})
+
+
+function init(){
+  activePlayer = 0
+  current = 0
+  total = [0, 0]
+  for (var i = 0; i < 2; i++) {
+    document.getElementById('current-'+ i).textContent = 0;
+    document.getElementById('score-'+ i).textContent = 0;
+  }
+}
