@@ -34,8 +34,6 @@ rollDiceBtn.addEventListener('click', function() {
     current = 0;
     reflectCurrent()
     toggleActivePlayer()
-    activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
-    toggleActivePlayer()
   }
 
   // display current sum number to currentbox
@@ -43,15 +41,14 @@ rollDiceBtn.addEventListener('click', function() {
     document.getElementById('current-'+ activePlayer).textContent = current;
   }
 
-  // toggle active player status
-  function toggleActivePlayer() {
-    document.querySelector('.player-'+ activePlayer + '-panel').classList.toggle("active")
-  }
 })
 
+// ====== # hold buttn function ======
 holdBtn.addEventListener('click', function() {
-
-
+  total[activePlayer] += current;
+  current = 0;
+  document.getElementById('score-' + activePlayer).textContent = total[activePlayer]
+  toggleActivePlayer()
 })
 
 
@@ -63,4 +60,15 @@ function init(){
     document.getElementById('current-'+ i).textContent = 0;
     document.getElementById('score-'+ i).textContent = 0;
   }
+}
+
+function toggleActivePlayer() {
+  toggleActivePlayerPanel()
+  document.getElementById('current-'+ activePlayer).textContent = 0;
+  activePlayer === 0 ? activePlayer = 1 : activePlayer = 0;
+  toggleActivePlayerPanel()
+}
+
+function toggleActivePlayerPanel() {
+  document.querySelector('.player-'+ activePlayer + '-panel').classList.toggle("active")
 }
