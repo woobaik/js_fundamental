@@ -31,6 +31,7 @@ rollDiceBtn.addEventListener('click', function() {
   if (dice !== 1) {
     current += dice;
     reflectCurrent()
+    checkWinner()
   }
   else {
     current = 0;
@@ -49,6 +50,7 @@ rollDiceBtn.addEventListener('click', function() {
 holdBtn.addEventListener('click', function() {
   total[activePlayer] += current;
   current = 0;
+  checkWinner();
   document.getElementById('score-' + activePlayer).textContent = total[activePlayer]
   toggleActivePlayer()
 })
@@ -68,7 +70,22 @@ function init(){
   for (var i = 0; i < 2; i++) {
     document.getElementById('current-'+ i).textContent = 0;
     document.getElementById('score-'+ i).textContent = 0;
+    document.querySelector('#name-' + i).textContent = "Player " + i
+    document.querySelector('.player-' + i + '-panel').classList.remove('winner');
+    rollDiceBtn.style.display = 'block';
+    holdBtn.style.display = 'block';
+    resetActivePlayer()
+    document.querySelector('.player-0-panel').classList.add("active")
   }
+}
+
+// reset active player dot to player 0
+function resetActivePlayer(){
+  for ( var i = 0; i < 2; i++ ) {
+    document.querySelector('.player-'+ i + '-panel').classList.remove("active")
+  }
+
+
 }
 
 function toggleActivePlayer() {
@@ -80,4 +97,15 @@ function toggleActivePlayer() {
 
 function toggleActivePlayerPanel() {
   document.querySelector('.player-'+ activePlayer + '-panel').classList.toggle("active")
+}
+
+// check winner
+function checkWinner() {
+  if (total[activePlayer] >= 100 || current >= 100) {
+    document.querySelector('#name-' + activePlayer).textContent = "Winner!!"
+    document.querySelector('.player-' + activePlayer + '-panel').classList.add('winner');
+    rollDiceBtn.style.display = 'none';
+    holdBtn.style.display = 'none';
+    diceBtn.style.display = 'none';
+  }
 }
