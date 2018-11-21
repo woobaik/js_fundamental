@@ -98,3 +98,41 @@
 //
 //
 // fizzBuzz([1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20])
+
+
+let isPrime = (num) => {
+  if (num < 2) {
+    return false;
+  }
+  else {
+    for (let i = 2; i < num; i++) {
+      if (num % i == 0) {
+        return false
+      }
+    }
+  }
+  return true;
+}
+
+
+
+let sumOfNPrimes = (num) => {
+  let result = [];
+  let sum = 0;
+  let i = 1;
+  if (num === 0) {
+    console.log('0')
+    return 0
+  }
+  while ( result.length < num) {
+    if (isPrime(i)) {
+      result.push(i)
+      sum += i
+    }
+    i++
+  }
+  console.log(sum)
+}
+
+
+sumOfNPrimes(4)
