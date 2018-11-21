@@ -34,18 +34,16 @@ Elephant.prototype.play = function() {
   console.log(`${this.name} is ${this.trick[randomNumber]}`)
 }
 
-let giant = new Elephant('Giant', 130, ['painting a picture', 'doing headbanging!'])
+let ellie = new Elephant("Ellie", 185, ["giving human friends a ride", "playing hide and seek"]);
+let charlie = new Elephant("Charlie", 200, ["painting pictures", "spraying water for a slip and slide"]);
+let kate = new Elephant("Kate", 234, ["writing letters", "stealing peanuts"]);
+let micah = new Elephant("Micah", 143, ["trotting", "playing tic tac toe", "doing elephant ballet"]);
 
-console.log(giant.height)
-giant.grow()
-console.log(giant.height)
+let herd = [ellie, charlie, kate, micah];
 
-console.log(giant.trick);
-giant.addTrick('Singing a song');
-console.log(giant.trick);
+Elephant.herd = herd;
+Elephant.paradeHelper = function(elephant) {
+  console.log(`${elephant.name} is trtting by!`);
+}
 
-giant.play()
-giant.play()
-giant.play()
-giant.play()
-giant.play()
+Elephant.herd.forEach((elep) => { Elephant.paradeHelper(elep)})
