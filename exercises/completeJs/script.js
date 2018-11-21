@@ -60,7 +60,7 @@
   )
 
   var questingSet = [q1, q2, q3];
-  var randomNum = Math.floor(Math.random() * questingSet.length)
+  var randomNum = Math.floor(Math.random( ) * questingSet.length)
 
   questingSet[randomNum].showingSelection();
   questingSet[randomNum].getSelection();
