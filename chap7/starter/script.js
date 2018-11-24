@@ -139,6 +139,8 @@ const streetSummary = () => {
 }
 
 streetSummary()
+
+
 const report = () => {
   console.log('========FINAL REPORT==========')
 
