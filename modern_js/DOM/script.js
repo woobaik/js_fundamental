@@ -61,23 +61,37 @@
 // console.log(items);
 // console.log(items[0]);
 //
+//
+// const li = document.createElement('li')
+//
+// li.className = 'collection-item';
+// li.id = 'new-item';
+// li.setAttribute('title','New-item');
+//
+//
+// //create text node and append;
+//
+// li.appendChild(document.createTextNode('hello world'));
+//
+// const link = document.createElement('a');
+// link.className = 'delete-item secondary-content';
+// link.innerHTML = '<i class="fa fa-remove"></i>'
+//
+// li.appendChild(link);
+//
+// document.querySelector('ul.collection').appendChild(li);
+// console.log(li);
 
-const li = document.createElement('li')
-
-li.className = 'collection-item';
-li.id = 'new-item';
-li.setAttribute('title','New-item');
 
 
-//create text node and append;
+const newHeading = document.createElement('h2');
+newHeading.id = 'tasks-title'
+newHeading.appendChild(document.createTextNode('Task List'));
 
-li.appendChild(document.createTextNode('hello world'));
+const oldHeading = document.getElementById('task-title');
 
-const link = document.createElement('a');
-link.className = 'delete-item secondary-content';
-link.innerHTML = '<i class="fa fa-remove"></i>'
+//parent
+const cardAction = document.querySelector('.card-action');
 
-li.appendChild(link);
-
-document.querySelector('ul.collection').appendChild(li);
-console.log(li);
+cardAction.replaceChild(newHeading, oldHeading)
+console.log(newHeading)
