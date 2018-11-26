@@ -56,7 +56,28 @@
 
 // console.log(document.querySelector('#'));
 
+// 2+2+1+1+2+4+1+1+2.3+1+2.3+8+16
+// const items = document.getElementsByClassName('collection-item');
+// console.log(items);
+// console.log(items[0]);
+//
 
-const items = document.getElementsByClassName('collection-item');
-console.log(items);
-console.log(items[0]);
+const li = document.createElement('li')
+
+li.className = 'collection-item';
+li.id = 'new-item';
+li.setAttribute('title','New-item');
+
+
+//create text node and append;
+
+li.appendChild(document.createTextNode('hello world'));
+
+const link = document.createElement('a');
+link.className = 'delete-item secondary-content';
+link.innerHTML = '<i class="fa fa-remove"></i>'
+
+li.appendChild(link);
+
+document.querySelector('ul.collection').appendChild(li);
+console.log(li);
