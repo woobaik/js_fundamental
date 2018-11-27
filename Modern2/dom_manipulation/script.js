@@ -56,28 +56,27 @@ remaining.appendChild(counter);
 
 const inputBox = document.querySelector('.input-box')
 
-const filtered = {
+const filter = {
   searchText: ''
 }
 
-const renderNote = (dataSet, filtered) => {
-
-  const filtering = dataSet.filter((data) => {
-    return data.text.toLowerCase().includes(filtered.searchText.toLowerCase())
+const renderNotes = (data, filter) => {
+  const filteredData = data.filter((task) => {
+    return task.text.toLowerCase().includes(filter.searchText.toLowerCase())
   })
 
   searchResult.innerText = ''
-
-  filtering.forEach((filteredNote) => {
+  filteredData.forEach((fd) => {
     const p = document.createElement('p');
-    p.innerText = filteredNote.text;
-    searchResult.appendChild(p)
+    p.innerText = fd.text;
+    searchResult.appendChild(p);
   })
 }
 
-renderNote(todo, filtered)
+
+renderNotes(todo, filter)
 
 inputBox.addEventListener('input', (e) => {
-  filtered.searchText = e.target.value;
-  renderNote(todo, filtered)
+  filter.searchText = e.target.value;
+  renderNotes(todo, filter)
 })
