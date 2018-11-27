@@ -34,27 +34,34 @@ const todo = [{
   completed: false
 }
 ]
+
 let incompleted = 0;
 const body = document.querySelector('body');
 const tasks = document.querySelector('.tasks');
 const remaining = document.querySelector('.remaining')
 const searchResult = document.querySelector('.search-result')
+const inputBox = document.querySelector('.input-box')
+const form = document.querySelector('#add-form')
 
-todo.forEach((task) => {
-  if(task.completed === false) {
-    incompleted += 1
-  }
-  let list = document.createElement('p');
-  list.innerText = task.text;
-  tasks.appendChild(list);
-})
+const render = () => {
+  todo.forEach((task) => {
+    if(task.completed === false) {
+      incompleted += 1
+    }
+    let list = document.createElement('p');
+    list.innerText = task.text;
+    tasks.appendChild(list);
+  })
+}
+
+render()
+
+
 
 const counter = document.createElement('p');
 counter.innerText = `You have ${incompleted} tasks left`;
 remaining.appendChild(counter);
 
-
-const inputBox = document.querySelector('.input-box')
 
 const filter = {
   searchText: ''
@@ -79,4 +86,16 @@ renderNotes(todo, filter)
 inputBox.addEventListener('input', (e) => {
   filter.searchText = e.target.value;
   renderNotes(todo, filter)
+})
+
+
+form.addEventListener('submit', (e) => {
+  e.preventDefault()
+  const newTask = {
+                  text: e.target.elements['name-box'].value,
+                  completed: false
+                }
+  todo.push(newTask)
+  tasks.innerText =''
+  render()
 })
