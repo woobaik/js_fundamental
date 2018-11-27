@@ -29,6 +29,9 @@ const todo = [{
 }, {
   text: 'Finish javascript',
   completed: true
+}, {
+  text: "Finish Cooking",
+  completed: false
 }
 ]
 let incompleted = 0;
@@ -57,22 +60,24 @@ const filtered = {
   searchText: ''
 }
 
-const renderNotes = (dataSet, filterObj) => {
-  const filteredList = dataSet.filter((data) => {
-    return data.text.toLowerCase().includes(filterObj.searchText.toLowerCase())
+const renderNote = (dataSet, filtered) => {
+
+  const filtering = dataSet.filter((data) => {
+    return data.text.toLowerCase().includes(filtered.searchText.toLowerCase())
   })
 
   searchResult.innerText = ''
-  filteredList.forEach((data) => {
-    const p = document.createElement('p')
-    p.innerText = data.text;
+
+  filtering.forEach((filteredNote) => {
+    const p = document.createElement('p');
+    p.innerText = filteredNote.text;
     searchResult.appendChild(p)
   })
 }
 
-renderNotes(todo, filtered);
+renderNote(todo, filtered)
 
 inputBox.addEventListener('input', (e) => {
-  filtered.searchText = e.target.value
-  renderNotes(todo,filtered)
+  filtered.searchText = e.target.value;
+  renderNote(todo, filtered)
 })
