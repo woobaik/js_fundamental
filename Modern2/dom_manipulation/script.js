@@ -42,6 +42,7 @@ const remaining = document.querySelector('.remaining')
 const searchResult = document.querySelector('.search-result')
 const inputBox = document.querySelector('.input-box')
 const form = document.querySelector('#add-form')
+const checkBox = document.querySelector('#check-form')
 
 const render = () => {
   todo.forEach((task) => {
@@ -50,7 +51,7 @@ const render = () => {
     }
     let list = document.createElement('p');
     list.innerText = task.text;
-    tasks.appendChild(list);
+    // tasks.appendChild(list);
   })
 }
 
@@ -65,8 +66,9 @@ remaining.appendChild(counter);
 
 const filter = {
   searchText: ''
-}
 
+}
+ 
 const renderNotes = (data, filter) => {
   const filteredData = data.filter((task) => {
     return task.text.toLowerCase().includes(filter.searchText.toLowerCase())
@@ -88,14 +90,14 @@ inputBox.addEventListener('input', (e) => {
   renderNotes(todo, filter)
 })
 
-
-form.addEventListener('submit', (e) => {
-  e.preventDefault()
-  const newTask = {
-                  text: e.target.elements['name-box'].value,
-                  completed: false
-                }
-  todo.push(newTask)
-  tasks.innerText =''
-  render()
-})
+//
+// form.addEventListener('submit', (e) => {
+//   e.preventDefault()
+//   const newTask = {
+//                   text: e.target.elements['name-box'].value,
+//                   completed: false
+//                 }
+//   todo.push(newTask)
+//   tasks.innerText =''
+//   render()
+// })
