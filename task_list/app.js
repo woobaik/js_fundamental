@@ -41,7 +41,9 @@ function clearList(e) {
 
 function deleteItem(e) {
     if (e.target.className === 'fas fa-times') {
+        if (confirm('Are you sure?')) {
         e.target.parentElement.parentElement.remove();
+        }
     }
     
     e.preventDefault();
