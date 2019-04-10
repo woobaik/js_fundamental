@@ -2,6 +2,7 @@ const taskForm = document.querySelector('.task-form');
 const taskInput = document.querySelector('#task');
 const taskList = document.querySelector('.collection');
 const clearBtn = document.querySelector('.clear-task');
+const filterQuery = document.querySelector('#filter');
 
 
 loadEventListeners()
@@ -26,8 +27,7 @@ function addList(e) {
 
     li.appendChild(deleteBtn);
 
-    taskList.appendChild(li);
-
+    taskList.insertBefore(li, taskList[0])
     e.preventDefault();
 };
 
