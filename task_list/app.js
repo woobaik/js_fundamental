@@ -11,6 +11,7 @@ function loadEventListeners() {
     taskForm.addEventListener('submit', addList);
     clearBtn.addEventListener('click', clearList);
     taskList.addEventListener('click', deleteItem);
+    filterQuery.addEventListener('keyup', todoFilter);
 }
 
 function addList(e) {
@@ -47,4 +48,18 @@ function deleteItem(e) {
     }
     
     e.preventDefault();
+};
+
+function todoFilter(e) {
+    const text = document.querySelector('#filter').value;
+    console.log(text)
+
+    Array.from(taskList.children).forEach( task => {
+        if (task.textContent.indexOf(text) === -1 ) {
+            task.style.display = 'none'
+        } else {
+            task.style.display = 'block'
+        }
+    })
 }
+
