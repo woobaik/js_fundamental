@@ -1,11 +1,13 @@
 const taskForm = document.querySelector('.task-form');
 const taskInput = document.querySelector('#task');
 const taskList = document.querySelector('.collection');
+const clearBtn = document.querySelector('.clear-task');
 
 loadEventListeners()
 
 function loadEventListeners() {
     taskForm.addEventListener('submit', addList);
+    clearBtn.addEventListener('click', clearList);
 }
 
 function addList(e) {
@@ -25,4 +27,12 @@ function addList(e) {
     taskList.appendChild(li);
 
     e.preventDefault();
-}
+};
+
+function clearList(e) {
+    while (taskList.firstElementChild) {
+        taskList.firstElementChild.remove()
+    }
+    
+    e.preventDefault();
+};
