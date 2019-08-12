@@ -30,8 +30,25 @@ function addList() {
 
         listArea.appendChild(li)
 
+
+        //store in LS
+        storeTaskInLocalStorage(textInput.value);
         textInput.value = ''
-        console.log(deleteBtn)
+        
+    }
+}
+
+// Store Task
+
+function storeTaskInLocalStorage(input) {
+    let tasks;
+
+    if (localStorage.getItem(tasks)) {
+        console.log(tasks)
+    } else {
+        tasks = []
+        localStorage.setItem('tasks', tasks)
+        console.log(localStorage.getItem('tasks'))
     }
 }
 
