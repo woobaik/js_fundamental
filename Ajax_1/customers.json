@@ -1,0 +1,26 @@
+[
+    {
+        "id": "1",
+        "name": "joungwoo",
+        "address": "1510 briggs street"
+    },
+    {
+        "id": "2",
+        "name": "haram",
+        "address": "900 post street"
+    },
+    {
+        "id": "3",
+        "name": "costco",
+        "address": "700 san peblo Street"
+    },{
+        "id": "4",
+        "name": "Safeway",
+        "address": "19482 Airport Dr"
+    },{
+        "id": "5",
+        "name": "SFO",
+        "address": "77192 San Francisco"
+    }
+    
+]
