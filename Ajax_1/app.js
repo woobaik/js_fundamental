@@ -9,7 +9,7 @@ customerBtn.addEventListener('click', function() {
 
         xhr.onload = function () {
             if (this.status == 200) {
-                console.log(this.responseText)
+                
                 const container = document.querySelector('.container')
                 const customer = JSON.parse(this.responseText)
                 const customersList = document.querySelector('.customers-list')
