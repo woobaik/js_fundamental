@@ -5,11 +5,27 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Github Api</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/skeleton/2.0.4/skeleton.css"
-        integrity="sha256-ECB9bbROLGm8wOoEbHcHRxlHgzGqYpDtNTgDTyDz0wg=" crossorigin="anonymous" />
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css?family=Bubblegum+Sans&display=swap" rel="stylesheet">
+
 </head>
 <body>
-    hello
+    <div class="nav-bar">
+        Github API
+    </div>
+    <div class="input-box">
+        <div class="input-description">
+            This is a description for search
+        </div>
+        <div class="input-search">
+            <label for="github-search">GitHub ID :</label>
+            <input type="text" id="github-id" placeholder="Search github Id" class="input-field">
+        </div>
+    </div>
+
+    <div class="profile"></div>
+    <div class="repos"></div>
+
 </body>
 <script src="gitup.js"></script>
 <script src="ui.js"></script>

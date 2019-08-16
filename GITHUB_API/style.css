@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    background-color: lightgray;
+    font-family: 'Bubblegum Sans', cursive;
+
+}
+
+.nav-bar {
+    text-align: center;
+    padding: 1rem 0 0.5rem 0;
+    background-color: #263626;
+    height: 3rem;
+    color: white;
+    font-size: 2rem;
+}
+
+.input-box {
+    margin-top: 2rem;   
+    margin-left: 25%;
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    width: 50%;
+    text-align: center;
+    font-size: 2rem;
+    
+}
+
+.input-search {
+    margin: 1rem 0rem;
+}
+
+.input-field {
+    font-size: 2rem;
+    background-color: white;
+    width: 70%;
+    height: 2rem;
+    font-family: 'Bubblegum Sans', cursive;
+    padding-left: 0.5rem;
+
+}
+
+. {
+    width: 50%;
+}
