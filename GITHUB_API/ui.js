@@ -3,6 +3,6 @@ class UI {
         const profileBox = document.querySelector('.profile');
         const div = document.createElement('div');
         div.innerHTML = `<h6>${user.name}</h6>`
-        profileBox.appendChild(div)
+        
     }
 }
