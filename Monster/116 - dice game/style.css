@@ -1,0 +1,25 @@
+#output {
+    text-align: center;
+    font-size: 3rem;
+}
+
+#player1, #player2{
+    font-size: 7rem;
+    text-align: center;
+    width: 48%;
+    height: 350px;
+    border: 1px solid black;
+    display: inline-block
+
+}
+
+.btn {
+    width: 100%;
+    height: 100px;
+    font-size: 3rem;
+}
+
+.btn:hover {
+    background-color: lightgray;
+    cursor: pointer;
+}
